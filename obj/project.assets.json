@@ -10938,11 +10938,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\NAVEEN\\AUTOMATION\\GIT Repositories\\CodilityTest\\Selenium_BDD_Framework.csproj",
+      "projectUniqueName": "C:\\NAVEEN\\AUTOMATION\\GIT Repositories\\CodilityMyStoreTest\\Selenium_BDD_Framework.csproj",
       "projectName": "Selenium_BDD_Framework",
-      "projectPath": "C:\\NAVEEN\\AUTOMATION\\GIT Repositories\\CodilityTest\\Selenium_BDD_Framework.csproj",
+      "projectPath": "C:\\NAVEEN\\AUTOMATION\\GIT Repositories\\CodilityMyStoreTest\\Selenium_BDD_Framework.csproj",
       "packagesPath": "C:\\Users\\navee\\.nuget\\packages\\",
-      "outputPath": "C:\\NAVEEN\\AUTOMATION\\GIT Repositories\\CodilityTest\\obj\\",
+      "outputPath": "C:\\NAVEEN\\AUTOMATION\\GIT Repositories\\CodilityMyStoreTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\navee\\AppData\\Roaming\\NuGet\\NuGet.Config",

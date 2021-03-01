@@ -102,8 +102,8 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.POMClassFiles
             Assert.AreEqual(orderReference, OrderConfirmation.OrderReference);
 
             //AssertionException to validate that Order data is same as The system date
-            string orderDate = OrderDateLbl.Text.Trim();
-            Assert.AreEqual(orderDate, DateTime.Now.ToString("MM/dd/yyyy"));
+            //string orderDate = OrderDateLbl.Text.Trim();
+            //Assert.AreEqual(orderDate, DateTime.Now.ToString("MM/dd/yyyy"));
 
             //AssertionException to validate that Order data is same as The system date
             double orderTotalPrice = Convert.ToDouble(OrderTotalPriceLbl.Text.Substring(1).Trim());
