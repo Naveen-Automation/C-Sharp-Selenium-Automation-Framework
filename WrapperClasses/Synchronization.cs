@@ -17,37 +17,68 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.WrapperClasses
         /// <returns>Return details</returns>
         public static bool WaitUntillDisplayedAndEnabled(this IWebElement element, IWebDriver driver, bool shouldBeEnabled = true)
         {
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(GlobalVariables.TimeOut));
-            return wait.Until<bool>(d =>
+            bool retValue = new WebDriverWait(driver, TimeSpan.FromSeconds(GlobalVariables.TimeOut)).Until<bool>(d =>
             {
-                try
+                return shouldBeEnabled ? element.IsDisplayed() && element.IsEnabled() : element.IsDisplayed();
+            });
+            return retValue;
+        }
+
+
+        /// <summary>
+        /// Description of the method or class or property
+        /// </summary>
+        /// <param name="">Parameter description</param>
+        /// <returns>Return details</returns>
+        public static bool IsDisplayed(this IWebElement element)
+        {
+            bool isDisplayed;
+            try
+            {
+                isDisplayed = element.Displayed;
+            }
+            catch (Exception ex)
+            {
+                if (ex is NoSuchElementException || ex is StaleElementReferenceException || ex is WebDriverException || ex is NoSuchWindowException || ex is TargetInvocationException)
                 {
-                    return shouldBeEnabled ? element.Displayed && element.Enabled : element.Displayed;
-                }
-                catch (NoSuchElementException)
-                {
-                    //TODO: Logging Error pending
+                    // Log error Logger.Error()ex, "Caught exception...\n Returning element displayed as ''false");
                     return false;
                 }
-                catch (TargetInvocationException)
-                {
-                    //TODO: Logging Error pending
-                    try
-                    {
-                        return shouldBeEnabled ? element.Displayed && element.Enabled : element.Displayed;
-                    }
-                    catch (NoSuchElementException)
-                    {
-                        //TODO: Logging Error pending
-                        return false;
-                    }
-                    finally
-                    {
-                        //TODO: Logging the exit of the method
-                    }
-                }
-            });
+                throw;
+            }
+            return isDisplayed;
         }
+
+
+        /// <summary>
+        /// Description of the method or class or property
+        /// </summary>
+        /// <param name="">Parameter description</param>
+        /// <returns>Return details</returns>
+        public static bool IsEnabled(this IWebElement element)
+        {
+            bool isEnabled = false;
+            try
+            {
+                if (element.IsDisplayed())
+                {
+                    isEnabled = element.Displayed;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                if (ex is NoSuchElementException || ex is StaleElementReferenceException || ex is WebDriverException || ex is NoSuchWindowException || ex is TargetInvocationException)
+                {
+                    // Log error Logger.Error()ex, "Caught exception...\n Returning element enabled as ''false");
+                    return false;
+                }
+                throw;
+            }
+            return isEnabled;
+        }
+
+
         #endregion METHODS
     }
 }

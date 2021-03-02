@@ -1,4 +1,5 @@
-﻿using Com.Test.VeerankiNaveen.Selenium_BDD_Framework.EnvVariables;
+﻿using Com.Test.VeerankiNaveen.Selenium_BDD_Framework.Browsers;
+using Com.Test.VeerankiNaveen.Selenium_BDD_Framework.EnvVariables;
 using Com.Test.VeerankiNaveen.Selenium_BDD_Framework.Logs;
 using Com.Test.VeerankiNaveen.Selenium_BDD_Framework.Utilities;
 using log4net;
@@ -39,7 +40,7 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework
         [BeforeTestRun(Order = 1)]
         public static void Initialise()
         {
-
+            new ChromeBrowser().ClearBrowserData();
             FileSystem.CreateDirectory(GlobalConstants.TestResultsFolderPrefix);
             FileSystem.CreateDirectory(GlobalConstants.TestResultsScreenShotsFolderPrefix);
         }
@@ -50,7 +51,7 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework
         /// <param name="">Parameter description</param>
         /// <returns>Return details</returns>
         /// </summary>
-        [AfterScenario(Order = 1)]
+        [AfterScenario]
         public static void Terminate()
         {
             GlobalVariables.Browser.CloseBrowser();

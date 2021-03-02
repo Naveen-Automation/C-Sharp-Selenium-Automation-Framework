@@ -26,10 +26,12 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.Browsers
         /// <returns>Return details</returns>
 
         public abstract void LaunchBrowser();
-        #endregion
+
+        #endregion ABSTRACT METHODS
 
 
         #region METHODS
+
 
         /// <summary>
         /// Description of the method or class or property
@@ -75,6 +77,7 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.Browsers
         {
             Driver.Close();
             Driver.Quit();
+            Driver = null;
         }
 
 
@@ -113,12 +116,41 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.Browsers
             if (waitForPageLoad)
             {
                 var javaScriptExecutor = Driver as IJavaScriptExecutor;
+                ////TODO:  Exception Handeling needs to be done
+                //try
+                //{
                 WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(GlobalVariables.TimeOut));
-                bool readyCondition(IWebDriver driver) => (bool)javaScriptExecutor.ExecuteScript("return (document.readyState == 'complete')");
-                wait.Until(readyCondition);
-                //TODO:  Exception Handeling needs to be done
+                wait.Until(driver => (bool)javaScriptExecutor.ExecuteScript($"return (document.readyState == 'complete')"));
+
+                if ((bool)javaScriptExecutor.ExecuteScript($"return window.jQuery != undefined"))
+                {
+
+                    WebDriverWait jwait = new WebDriverWait(Driver, TimeSpan.FromSeconds(GlobalVariables.TimeOut));
+                    jwait.Until(driver => (bool)javaScriptExecutor.ExecuteScript($"return (jQuery.active == 0)"));
+                }
+                //}
+                //catch (InvalidOperationException ex)
+                //{
+                //    //Log error
+                //}
+                //catch (NoSuchWindowException ex)
+                //{
+                //    //Log error
+                //}
+
+                //catch (WebDriverException ex)
+                //{
+                //    //Log error
+                //}
+                //catch (NullReferenceException ex)
+                //{
+                //    //Log error
+                //}
             }
         }
+
+
+        public virtual void ClearBrowserData() { }
 
         #endregion 
     }

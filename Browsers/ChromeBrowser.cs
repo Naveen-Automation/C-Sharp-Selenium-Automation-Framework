@@ -1,6 +1,8 @@
 ﻿using Com.Test.VeerankiNaveen.Selenium_BDD_Framework.EnvVariables;
+using Com.Test.VeerankiNaveen.Selenium_BDD_Framework.Utilities;
 using OpenQA.Selenium.Chrome;
 using System;
+using System.IO;
 
 namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.Browsers
 {
@@ -39,6 +41,21 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.Browsers
             {
                 Driver.Manage().Window.Maximize();
             }
+        }
+
+
+        /// <summary>
+        /// Description of the method or class or property
+        /// </summary>
+        /// <param name="">Parameter description</param>
+        /// <returns>Return details</returns>
+        public override void ClearBrowserData()
+        {
+            string chromeDataDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Google", "Chrome", "UserData", "Default");
+            ShellCommandExecutor shell = new ShellCommandExecutor();
+            shell.ExecuteCommandWaitForExpectedResponse($"del /q /s /f \"{Path.Combine(chromeDataDir, "Cache", "*.*")}\">nul 2>&1");
+            shell.ExecuteCommandWaitForExpectedResponse($"del /q /f \"{Path.Combine(chromeDataDir, "*Cookies*.*")}\">nul 2>&1");
+            shell.ExecuteCommandWaitForExpectedResponse($"del /q /f \"{Path.Combine(chromeDataDir, "*History*.*")}\">nul 2>&1");
         }
 
         #endregion METHODS
