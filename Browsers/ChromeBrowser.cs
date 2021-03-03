@@ -51,6 +51,7 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.Browsers
         /// <returns>Return details</returns>
         public override void ClearBrowserData()
         {
+            //Path Needs to be corrected
             string chromeDataDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Google", "Chrome", "UserData", "Default");
             ShellCommandExecutor shell = new ShellCommandExecutor();
             shell.ExecuteCommandWaitForExpectedResponse($"del /q /s /f \"{Path.Combine(chromeDataDir, "Cache", "*.*")}\">nul 2>&1");

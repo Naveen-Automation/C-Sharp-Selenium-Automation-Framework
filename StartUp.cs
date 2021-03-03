@@ -40,7 +40,8 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework
         [BeforeTestRun(Order = 1)]
         public static void Initialise()
         {
-            new ChromeBrowser().ClearBrowserData();
+
+            // ClearBrowserCacheCookiesHistory();
             FileSystem.CreateDirectory(GlobalConstants.TestResultsFolderPrefix);
             FileSystem.CreateDirectory(GlobalConstants.TestResultsScreenShotsFolderPrefix);
         }
@@ -57,6 +58,29 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework
             GlobalVariables.Browser.CloseBrowser();
         }
 
+
+        /// <summary>
+        /// Description of the method or class or prope
+        /// <param name="">Parameter description</param>
+        /// <returns>Return details</returns>
+        /// </summary>
+        public static void ClearBrowserCacheCookiesHistory()
+        {
+            string browserType = JsonFileReader.ReadJsonFile("BrowserType");
+            browserType = browserType.ToUpper().Trim();
+            switch (browserType)
+            {
+                case "CHROME":
+                    new ChromeBrowser().ClearBrowserData();
+                    break;
+                case "IE":
+                    new IEBrowser().ClearBrowserData();
+                    break;
+                case "FIREFOX":
+                    new FirefoxBrowser().ClearBrowserData();
+                    break;
+            }
+        }
         #endregion METHODS
     }
 

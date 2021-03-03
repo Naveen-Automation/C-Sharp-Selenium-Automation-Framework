@@ -116,7 +116,6 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.Browsers
             if (waitForPageLoad)
             {
                 var javaScriptExecutor = Driver as IJavaScriptExecutor;
-                ////TODO:  Exception Handeling needs to be done
                 //try
                 //{
                 WebDriverWait wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(GlobalVariables.TimeOut));

@@ -102,11 +102,11 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.POMClassFiles
             {
                 case "PAYBYBANKWIRE":
                     PayByBankWireLnk.WClick();
-                    OrderPaymentType = GlobalConstants.BankWirePaymentType;   //TODO:  Add these as constants 
+                    OrderPaymentType = GlobalConstants.BankWirePaymentType;    
                     break;
                 case "PAYBYCHEQUE":
                     PayByChequeLnk.WClick();
-                    OrderPaymentType = GlobalConstants.ChequePaymentType;      //TODO:  Add these as constants 
+                    OrderPaymentType = GlobalConstants.ChequePaymentType;      
                     break;
             }
 
