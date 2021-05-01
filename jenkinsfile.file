@@ -17,7 +17,7 @@ pipeline {
     agent any
 	parameters
 	{
-		choice(choices: EVIRONMENT, description: 'Pick the TestEnvironment, if you don\'t specify then it won\'t work', name:'Environment'')
+		choice(choices: ENVIRONMENT, description: 'Pick the TestEnvironment, if you don\'t specify then it won\'t work', name:'Environment')
 	
 	
 	}
