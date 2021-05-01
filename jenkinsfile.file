@@ -32,7 +32,7 @@ pipeline {
         stage('Build') {
 						steps {
 								echo '***************************************   BUILDING SOLUTION   ***************************************'
-								bat '"${MSBUILD_PATH} {SOLUTION_NAME}'
+								bat '"${MSBUILD_PATH} ${SOLUTION_NAME}"'
 							  }
 						}
         stage('Test Execution') {
