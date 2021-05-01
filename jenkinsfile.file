@@ -32,8 +32,8 @@ pipeline {
         stage('Build') {
 						steps {
 								echo '***************************************   BUILDING SOLUTION   ***************************************'
-								bat '"${MSBUILD_PATH} ${SOLUTION_NAME}"'
-								//bat '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe" "Selenium_BDD_Framework.sln"'
+								//bat '"${MSBUILD_PATH} ${SOLUTION_NAME}"'
+								bat '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe" "Selenium_BDD_Framework.sln"'
 							  }
 						}
         stage('Test Execution') {
