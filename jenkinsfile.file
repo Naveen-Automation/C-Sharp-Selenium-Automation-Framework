@@ -4,7 +4,7 @@
 SOLUTION_NAME="Selenium_BDD_Framework.sln"
 PROJECT_ASSEMBLY="Selenium_BDD_Framework.dll"
 DOTNET_CORE_FRAMEWORK="netcoreapp3.1"
-BROWSER_TYPE=['Please Select...','Chrome','Edge','IE','FIREFOX']
+//BROWSER_TYPE=['Please Select...','Chrome','Edge','IE','FIREFOX']
 MSBUILD_PATH="C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe"
 GIT_REPO_URL="https://github.com/Naveen-Automation/CodilityMyStoreTest.git"
 //ENVIRONMENT=[]
@@ -15,12 +15,10 @@ GIT_REPO_URL="https://github.com/Naveen-Automation/CodilityMyStoreTest.git"
 
 pipeline {
     agent any
-	parameters
-	{
-		choice(choices: ENVIRONMENT, description: 'Pick the TestEnvironment, if you don\'t specify then it won\'t work', name:'Environment')
-	
-	
-	}
+	//parameters
+	//{
+		//choice(choices: ENVIRONMENT, description: 'Pick the TestEnvironment, if you don\'t specify then it won\'t work', name:'Environment')
+	//}
 	
 	
     //Set stages
