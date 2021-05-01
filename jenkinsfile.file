@@ -1,10 +1,28 @@
 //Jenkins pipeline as a code
 
-//Grovy Variables
-//solutionName='Selenium_BDD_Framework.sln'
+//***************************************   Pipeline Variables   ***************************************
+SOLUTION_NAME="Selenium_BDD_Framework.sln"
+PROJECT_ASSEMBLY="Selenium_BDD_Framework.dll"
+DOTNET_CORE_FRAMEWORK="netcoreapp3.1"
+BROWSER_TYPE=['Please Select...','Chrome','Edge','IE','FIREFOX']
+MSBUILD_PATH="C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe"
+GIT_REPO_URL="https://github.com/Naveen-Automation/CodilityMyStoreTest.git"
+//ENVIRONMENT=[]
+
+//***************************************   End Of Pipeline Variables   ***************************************
+
+
 
 pipeline {
     agent any
+	
+	{
+		choice(choices: EVIRONMENT, description: 'Pick the ENVIRONMENT, if you don\'t specify then it won\'t work', name:'Environment'')
+	
+	
+	}
+	
+	
     //Set stages
     stages {
 	    stage('GIT Checkout') {
@@ -16,7 +34,7 @@ pipeline {
         stage('Build') {
 						steps {
 								echo '***************************************   BUILDING SOLUTION   ***************************************'
-								bat '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe" "Selenium_BDD_Framework.sln"'
+								bat '"${MSBUILD_PATH} {SOLUTION_NAME}'
 							  }
 						}
         stage('Test Execution') {
@@ -29,8 +47,8 @@ pipeline {
 								steps {
 										echo '***************************************   GENERATING HTML REPORT   ***************************************'
 										publishHTML([
-										allowMissing: true, 
-										alwaysLinkToLastBuild: true, 
+										allowMissing: false, 
+										alwaysLinkToLastBuild: false, 
 										keepAll: true, 
 										reportDir: 'bin\\TestResults', 
 										reportFiles: 'index.html', 
