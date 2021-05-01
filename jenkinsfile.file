@@ -24,7 +24,7 @@ pipeline {
 								}
 		stage('Report Generation') {
 								steps {
-										publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'bin\\TestResults', reportFiles: 'index.html', reportName: 'BDD Test Automation Report', reportTitles: 'Extent Report'])
+										publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'bin\\TestResults', reportFiles: 'index.html', reportName: 'BDD Test Automation Report', reportTitles: 'Extent Report'])
 									  }
 								}
     }
