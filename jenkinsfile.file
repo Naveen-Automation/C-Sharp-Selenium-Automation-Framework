@@ -15,9 +15,9 @@ GIT_REPO_URL="https://github.com/Naveen-Automation/CodilityMyStoreTest.git"
 
 pipeline {
     agent any
-	
+	parameters
 	{
-		choice(choices: EVIRONMENT, description: 'Pick the ENVIRONMENT, if you don\'t specify then it won\'t work', name:'Environment'')
+		choice(choices: EVIRONMENT, description: 'Pick the TestEnvironment, if you don\'t specify then it won\'t work', name:'Environment'')
 	
 	
 	}
