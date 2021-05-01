@@ -1,6 +1,7 @@
 ﻿using Com.Test.VeerankiNaveen.Selenium_BDD_Framework.Browsers;
 using Com.Test.VeerankiNaveen.Selenium_BDD_Framework.Enum;
 using Com.Test.VeerankiNaveen.Selenium_BDD_Framework.EnvVariables;
+using Com.Test.VeerankiNaveen.Selenium_BDD_Framework.Utilities;
 using OpenQA.Selenium;
 using System;
 using System.Reflection;
@@ -43,7 +44,14 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.WrapperClasses
                         string exString = ex.ToString();
                         if (!exString.Contains("Errro executing JavaScript") && !exString.Contains("Error from JavaScript") && !(ex is NullReferenceException))
                         {
-                            throw;
+                            if (GlobalVariables.DebugMode)
+                            {
+                                Msgbox.Display("Error: Element was not clicked");
+                            }
+                            else
+                            {
+                                throw;
+                            }
                         }
                     }
                 }

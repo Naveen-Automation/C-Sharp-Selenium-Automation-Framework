@@ -49,17 +49,6 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.POMClassFiles
         /// </summary>
         /// <param name="">Parameter description</param>
         /// <returns>Return details</returns>    
-        public override void FillPageForm(Table table)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        /// <summary>
-        /// Description of the method or class or property
-        /// </summary>
-        /// <param name="">Parameter description</param>
-        /// <returns>Return details</returns>    
         public override void MoveToNextPage(string elementName)
         {
             elementName = StringManipulation.RemoveSpaceInBetweenTrimUpperCase(elementName);
@@ -67,6 +56,7 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.POMClassFiles
             {
                 case "SIGNIN":
                     SignInLnk.WClick();
+                    //Msgbox.Display("{ if (! window.focus) return true; window.open('', windowname, height = 200, width = 400, scrollbars = yes'); myform.target=windowname; return true;}");
                     break;
             }
 
@@ -75,3 +65,5 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.POMClassFiles
         #endregion METHODS
     }
 }
+
+//string n = "<SCRIPT TYPE="test/javascript"> function popupform(myform, windowname) { if (! window.focus) return true; window.open('', windowname, height = 200, width = 400, scrollbars = yes'); myform.target=windowname; return true;}</SCRIPT>";

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "r4n8oJh+5/2HbrtlRG7FEeJYOGEnYv5OOs61lUIZviYYJppl8/9EUz9RfZ55j6v+IYSURxgfVSlKz0pUGADHXw==",
+  "dgSpecHash": "NYcguL5EHzsxWfkgyJLIxr8IObj8MXYwhxNsfWE3cESuCgAIdPz8Ntjvb5OG6bmCgsr5bwNe7HaXVJwyeYcAdw==",
   "success": true,
   "projectFilePath": "C:\\NAVEEN\\AUTOMATION\\GIT Repositories\\CodilityMyStoreTest\\Selenium_BDD_Framework.csproj",
   "expectedPackageFiles": [
@@ -113,7 +113,7 @@
     "C:\\Users\\navee\\.nuget\\packages\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl\\4.3.2\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.2.nupkg.sha512",
     "C:\\Users\\navee\\.nuget\\packages\\selenium.support\\3.141.0\\selenium.support.3.141.0.nupkg.sha512",
     "C:\\Users\\navee\\.nuget\\packages\\selenium.webdriver\\3.141.0\\selenium.webdriver.3.141.0.nupkg.sha512",
-    "C:\\Users\\navee\\.nuget\\packages\\selenium.webdriver.chromedriver\\88.0.4324.9600\\selenium.webdriver.chromedriver.88.0.4324.9600.nupkg.sha512",
+    "C:\\Users\\navee\\.nuget\\packages\\selenium.webdriver.chromedriver\\90.0.4430.2400\\selenium.webdriver.chromedriver.90.0.4430.2400.nupkg.sha512",
     "C:\\Users\\navee\\.nuget\\packages\\selenium.webdriver.geckodriver\\0.29.0\\selenium.webdriver.geckodriver.0.29.0.nupkg.sha512",
     "C:\\Users\\navee\\.nuget\\packages\\selenium.webdriver.iedriver\\3.150.1.2\\selenium.webdriver.iedriver.3.150.1.2.nupkg.sha512",
     "C:\\Users\\navee\\.nuget\\packages\\sharpcompress\\0.23.0\\sharpcompress.0.23.0.nupkg.sha512",

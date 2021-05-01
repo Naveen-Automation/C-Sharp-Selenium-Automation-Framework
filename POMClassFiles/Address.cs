@@ -54,17 +54,6 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.POMClassFiles
         /// </summary>
         /// <param name="">Parameter description</param>
         /// <returns>Return details</returns>    
-        public override void FillPageForm(Table table)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        /// <summary>
-        /// Description of the method or class or property
-        /// </summary>
-        /// <param name="">Parameter description</param>
-        /// <returns>Return details</returns>    
         public override void MoveToNextPage(string elementName)
         {
             elementName = StringManipulation.RemoveSpaceInBetweenTrimUpperCase(elementName);

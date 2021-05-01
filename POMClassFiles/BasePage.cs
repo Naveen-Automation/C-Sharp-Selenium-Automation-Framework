@@ -40,22 +40,27 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.POMClassFiles
         public abstract bool CheckPageLoaded();
 
 
-        /// <summary>
-        /// Description of the method or class or property
-        /// </summary>
-        /// <param name="">Parameter description</param>
-        /// <returns>Return details</returns>
-        public abstract void FillPageForm(Table table);
-
-
-        /// <summary>
-        /// Description of the method or class or property
-        /// </summary>
-        /// <param name="">Parameter description</param>
-        /// <returns>Return details</returns>
-        public abstract void MoveToNextPage(string elementName);
-
         #endregion  ABSTRACT METHODS
+
+
+        #region VIRTUAL METHODS
+
+        /// <summary>
+        /// Description of the method or class or property
+        /// </summary>
+        /// <param name="">Parameter description</param>
+        /// <returns>Return details</returns>
+        public virtual void FillPageForm(Table table) { }
+
+
+        /// <summary>
+        /// Description of the method or class or property
+        /// </summary>
+        /// <param name="">Parameter description</param>
+        /// <returns>Return details</returns>
+        public virtual void MoveToNextPage(string elementName) { }
+
+        #endregion
 
 
         #region METHODS

@@ -1,5 +1,6 @@
 ﻿using Com.Test.VeerankiNaveen.Selenium_BDD_Framework.EnvVariables;
 using Com.Test.VeerankiNaveen.Selenium_BDD_Framework.Utilities;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using System.IO;
@@ -21,6 +22,8 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.Browsers
 
             //Option to disable 'Chrome is being controlled by automated test software' info bar
             chromeOptions.AddExcludedArgument("enable-automation");
+
+            chromeOptions.UnhandledPromptBehavior = UnhandledPromptBehavior.Ignore;
 
             //Option to disable 'Saved Passwords' dialog
             chromeOptions.AddUserProfilePreference("credentials_enable_service", false);

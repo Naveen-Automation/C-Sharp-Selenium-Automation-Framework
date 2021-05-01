@@ -1,4 +1,5 @@
-﻿using Com.Test.VeerankiNaveen.Selenium_BDD_Framework.EnvVariables;
+﻿using AventStack.ExtentReports;
+using Com.Test.VeerankiNaveen.Selenium_BDD_Framework.EnvVariables;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
@@ -44,10 +45,10 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.Browsers
             applicationName = applicationName.Trim().ToUpper();
             switch (applicationName)
             {
-                case "MYSTORE":
+                case "MYSTORE": //TODO: Make it constant
                     Driver.Navigate().GoToUrl(GlobalVariables.MyStoreURL);
                     break;
-                case "ANYOTHERSTORE":
+                case "ANYOTHERSTORE":    //TODO: Make it constant
                     Driver.Navigate().GoToUrl(GlobalVariables.AnyOtherStore);
                     break;
             }
@@ -68,6 +69,15 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.Browsers
         }
 
 
+        public bool IsAlertPresent()
+        {
+#pragma warning disable CS0618 // Type or member is obsolete
+            IAlert alert = ExpectedConditions.AlertIsPresent().Invoke(Driver);
+#pragma warning restore CS0618 // Type or member is obsolete
+            return (null != alert);
+
+        }
+
         /// <summary>
         /// Description of the method or class or property
         /// </summary>
@@ -86,11 +96,9 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.Browsers
         /// </summary>
         /// <param name="">Parameter description</param>
         /// <returns>Return details</returns>
-
         public string GetBrowserTitle()
         {
             return Driver.Title;
-            //Assert.AreEqual("Google", actualTitle);}
         }
 
 
@@ -98,13 +106,24 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.Browsers
         /// Method to take screen shot of the browser 
         ///</summary>
         ///<param name="fileName">File Path of the screen shot</param>
-        public void TakeScreenShot(string fileName)
+        public static MediaEntityModelProvider TakeScreenShot(string fileName)
         {
             GlobalVariables.ScreenShotCounter = GlobalVariables.ScreenShotCounter + 1;
-            Screenshot screenShot = ((ITakesScreenshot)Driver).GetScreenshot();
-            screenShot.SaveAsFile($"{GlobalVariables.ScreenShotsPath}\\{fileName}{GlobalVariables.ScreenShotCounter}.png", ScreenshotImageFormat.Png);
+            //Screenshot screenShotInFolder = ((ITakesScreenshot)GlobalVariables.Browser.Driver).GetScreenshot();
+            //screenShotInFolder.SaveAsFile($"{GlobalVariables.ScreenShotsPath}\\{fileName}{GlobalVariables.ScreenShotCounter}.png", ScreenshotImageFormat.Png);
 
+            string screenShot = ((ITakesScreenshot)GlobalVariables.Browser.Driver).GetScreenshot().AsBase64EncodedString;
+                return MediaEntityBuilder.CreateScreenCaptureFromBase64String(screenShot, fileName).Build();
+            //return MediaEntityBuilder.CreateScreenCaptureFromBase64String(screenShot, $"{GlobalVariables.ScreenShotsPath}\\{fileName}{GlobalVariables.ScreenShotCounter}.png").Build();
+            
         }
+
+        //public void TakeScreenShot(string fileName)
+        //{
+        //    GlobalVariables.ScreenShotCounter = GlobalVariables.ScreenShotCounter + 1;
+        //    Screenshot screenShot = ((ITakesScreenshot)Driver).GetScreenshot();
+        //    screenShot.SaveAsFile($"{GlobalVariables.ScreenShotsPath}\\{fileName}{GlobalVariables.ScreenShotCounter}.png", ScreenshotImageFormat.Png);
+        //}
 
 
         ///<summary>

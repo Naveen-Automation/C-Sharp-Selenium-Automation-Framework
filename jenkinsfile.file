@@ -9,7 +9,7 @@ pipeline {
     stages {
 	    stage('GIT Checkout') {
             steps {
-					git branch: 'master', credentialsId: 'bc09cac4-1d6d-4838-945a-fc4a6dd0cbb5', url: 'https://github.com/Naveen-Automation/CodilityTest.git'
+					git branch: 'master', credentialsId: 'bc09cac4-1d6d-4838-945a-fc4a6dd0cbb5', url: 'https://github.com/Naveen-Automation/CodilityMyStoreTest.git'
 				  }
         }
         stage('Build') {

@@ -84,17 +84,6 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.POMClassFiles
         /// </summary>
         /// <param name="">Parameter description</param>
         /// <returns>Return details</returns>    
-        public override void FillPageForm(Table table)
-        {
-            throw new NotImplementedException();
-        }
-
-
-        /// <summary>
-        /// Description of the method or class or property
-        /// </summary>
-        /// <param name="">Parameter description</param>
-        /// <returns>Return details</returns>    
         public override void FillPageForm()
         {
             //Assertion to validate Order reference generated on Order Confirmation page is present on Order History page

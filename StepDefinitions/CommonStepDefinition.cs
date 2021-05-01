@@ -50,7 +50,7 @@ namespace Selenium_BDD_Framework
         {
             MyPersonalInformation yourPersonalInfo = new MyPersonalInformation(GlobalVariables.Browser);
             yourPersonalInfo.ValidateSucessMessage();
-            GlobalVariables.Browser.TakeScreenShot(pageName);
+            //GlobalVariables.Browser.TakeScreenShot(pageName);
         }
 
 
@@ -65,7 +65,8 @@ namespace Selenium_BDD_Framework
         {
             BasePage pageObject = POMHelpers.CreatePageObjectAtRunTime(pageName, GlobalVariables.Browser);
             pageObject.FillPageForm(table);
-            GlobalVariables.Browser.TakeScreenShot(pageName);
+
+            //GlobalVariables.Browser.TakeScreenShot(pageName);
             pageObject.MoveToNextPage(elementName);
         }
 
@@ -80,7 +81,7 @@ namespace Selenium_BDD_Framework
         {
             BasePage pageObject = POMHelpers.CreatePageObjectAtRunTime(pageName, GlobalVariables.Browser);
             pageObject.FillPageForm();
-            GlobalVariables.Browser.TakeScreenShot(pageName);
+            //GlobalVariables.Browser.TakeScreenShot(pageName);
             pageObject.MoveToNextPage(elementName);
         }
 
@@ -118,21 +119,18 @@ namespace Selenium_BDD_Framework
 
 
 
-
         /// <summary>
         /// Description of the method or class or property
         /// </summary>
         /// <param name="">Parameter description</param>
         /// <returns>Return details</returns>
-
         [Then(@"I should see ""(.*)"" page")]
         public void ThenIShouldSeeRequestedPage(string pageName)
         {
             BasePage pageObject = POMHelpers.CreatePageObjectAtRunTime(pageName, GlobalVariables.Browser);
             Assert.IsTrue(pageObject.CheckPageLoaded());
-            GlobalVariables.Browser.TakeScreenShot(pageName);
+            //GlobalVariables.Browser.TakeScreenShot(pageName);
         }
-
         #endregion STEPS
     }
 }

@@ -1,6 +1,7 @@
 ﻿using AventStack.ExtentReports;
 using AventStack.ExtentReports.Gherkin.Model;
 using AventStack.ExtentReports.Reporter;
+using Com.Test.VeerankiNaveen.Selenium_BDD_Framework.Browsers;
 using Com.Test.VeerankiNaveen.Selenium_BDD_Framework.EnvVariables;
 using System.IO;
 using TechTalk.SpecFlow;
@@ -132,46 +133,47 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.Reporting
         public static void AfterEachStep()
         {
             _scenarioBlock = _scenarioContext.CurrentScenarioBlock;
+            var mediaEntity = BaseBrowser.TakeScreenShot(_scenarioContext.ScenarioInfo.Title.Trim());
             switch (_scenarioBlock)
             {
                 case ScenarioBlock.Given:
                     if (_scenarioContext.TestError != null)
                     {
-                        _scenario.CreateNode<Given>(_scenarioContext.StepContext.StepInfo.Text).Fail(_scenarioContext.TestError.Message + "\n" + _scenarioContext.TestError.StackTrace);
+                        _scenario.CreateNode<Given>(_scenarioContext.StepContext.StepInfo.Text).Fail(_scenarioContext.TestError.Message + "\n" + _scenarioContext.TestError.StackTrace,mediaEntity);
                     }
                     else
                     {
-                        _scenario.CreateNode<Given>(_scenarioContext.StepContext.StepInfo.Text).Pass("");
+                        _scenario.CreateNode<Given>(_scenarioContext.StepContext.StepInfo.Text).Pass("", mediaEntity);
                     }
                     break;
                 case ScenarioBlock.When:
                     if (_scenarioContext.TestError != null)
                     {
-                        _scenario.CreateNode<When>(_scenarioContext.StepContext.StepInfo.Text).Fail(_scenarioContext.TestError.Message + "\n" + _scenarioContext.TestError.StackTrace);
+                        _scenario.CreateNode<When>(_scenarioContext.StepContext.StepInfo.Text).Fail(_scenarioContext.TestError.Message + "\n" + _scenarioContext.TestError.StackTrace, mediaEntity);
                     }
                     else
                     {
-                        _scenario.CreateNode<When>(_scenarioContext.StepContext.StepInfo.Text).Pass("");
+                        _scenario.CreateNode<When>(_scenarioContext.StepContext.StepInfo.Text).Pass("", mediaEntity);
                     }
                     break;
                 case ScenarioBlock.Then:
                     if (_scenarioContext.TestError != null)
                     {
-                        _scenario.CreateNode<Then>(_scenarioContext.StepContext.StepInfo.Text).Fail(_scenarioContext.TestError.Message + "\n" + _scenarioContext.TestError.StackTrace);
+                        _scenario.CreateNode<Then>(_scenarioContext.StepContext.StepInfo.Text).Fail(_scenarioContext.TestError.Message + "\n" + _scenarioContext.TestError.StackTrace, mediaEntity);
                     }
                     else
                     {
-                        _scenario.CreateNode<Then>(_scenarioContext.StepContext.StepInfo.Text).Pass("");
+                        _scenario.CreateNode<Then>(_scenarioContext.StepContext.StepInfo.Text).Pass("", mediaEntity);
                     }
                     break;
                 default:
                     if (_scenarioContext.TestError != null)
                     {
-                        _scenario.CreateNode<And>(_scenarioContext.StepContext.StepInfo.Text).Fail(_scenarioContext.TestError.Message + "\n" + _scenarioContext.TestError.StackTrace);
+                        _scenario.CreateNode<And>(_scenarioContext.StepContext.StepInfo.Text).Fail(_scenarioContext.TestError.Message + "\n" + _scenarioContext.TestError.StackTrace, mediaEntity);
                     }
                     else
                     {
-                        _scenario.CreateNode<And>(_scenarioContext.StepContext.StepInfo.Text).Pass("");
+                        _scenario.CreateNode<And>(_scenarioContext.StepContext.StepInfo.Text).Pass("", mediaEntity);
                     }
                     break;
             }

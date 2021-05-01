@@ -20,7 +20,7 @@
           "Newtonsoft.Json": "12.0.3",
           "Selenium.Support": "3.141.0",
           "Selenium.WebDriver": "3.141.0",
-          "Selenium.WebDriver.ChromeDriver": "88.0.4324.9600",
+          "Selenium.WebDriver.ChromeDriver": "90.0.4430.2400",
           "Selenium.WebDriver.GeckoDriver": "0.29.0",
           "Selenium.WebDriver.IEDriver": "3.150.1.2",
           "SpecFlow": "3.6.23",
@@ -1505,7 +1505,7 @@
           }
         }
       },
-      "Selenium.WebDriver.ChromeDriver/88.0.4324.9600": {},
+      "Selenium.WebDriver.ChromeDriver/90.0.4430.2400": {},
       "Selenium.WebDriver.GeckoDriver/0.29.0": {},
       "Selenium.WebDriver.IEDriver/3.150.1.2": {},
       "SharpCompress/0.23.0": {
@@ -3364,12 +3364,12 @@
       "path": "selenium.webdriver/3.141.0",
       "hashPath": "selenium.webdriver.3.141.0.nupkg.sha512"
     },
-    "Selenium.WebDriver.ChromeDriver/88.0.4324.9600": {
+    "Selenium.WebDriver.ChromeDriver/90.0.4430.2400": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tFYi/cACBE+lq+aQMMCFDCZChkq7jQHm3yNh040r2WeuI+WBg3MDna9o+8x6d+inxdbCXDABnifqKb4CynRQLQ==",
-      "path": "selenium.webdriver.chromedriver/88.0.4324.9600",
-      "hashPath": "selenium.webdriver.chromedriver.88.0.4324.9600.nupkg.sha512"
+      "sha512": "sha512-poYw2JgVJ8obMYUSnfuucxQMrMusQiA3H2dXhw3bOaFm/bweTEAvhK8RVq+5zfjmTaj7COMYfIjhWJU0rPUabQ==",
+      "path": "selenium.webdriver.chromedriver/90.0.4430.2400",
+      "hashPath": "selenium.webdriver.chromedriver.90.0.4430.2400.nupkg.sha512"
     },
     "Selenium.WebDriver.GeckoDriver/0.29.0": {
       "type": "package",

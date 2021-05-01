@@ -143,6 +143,14 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework.EnvVariables
         /// </summary>
         public static int TimeOut { get; set; } = Convert.ToInt32(JsonFileReader.ReadJsonFile("TimeOut"));
 
+
+
+        /// <summary>
+        /// Description of the method or class or property
+        /// </summary>
+        public static bool DebugMode { get; set; } = Convert.ToBoolean(JsonFileReader.ReadJsonFile("DebugMode"));
+        
+
         #endregion PROPERTIES MAPPED WITH APPSETTINGS JSON 
     }
 }

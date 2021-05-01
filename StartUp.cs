@@ -40,7 +40,7 @@ namespace Com.Test.VeerankiNaveen.Selenium_BDD_Framework
         [BeforeTestRun(Order = 1)]
         public static void Initialise()
         {
-
+            
             // ClearBrowserCacheCookiesHistory();
             FileSystem.CreateDirectory(GlobalConstants.TestResultsFolderPrefix);
             FileSystem.CreateDirectory(GlobalConstants.TestResultsScreenShotsFolderPrefix);
