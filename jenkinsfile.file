@@ -9,22 +9,33 @@ pipeline {
     stages {
 	    stage('GIT Checkout') {
             steps {
+					echo '***************************************   GIT TO WORSPACE CLONING   ***************************************'
 					git branch: 'master', credentialsId: 'bc09cac4-1d6d-4838-945a-fc4a6dd0cbb5', url: 'https://github.com/Naveen-Automation/CodilityMyStoreTest.git'
 				  }
         }
         stage('Build') {
 						steps {
+								echo '***************************************   BUILDING SOLUTION   ***************************************'
 								bat '"C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe" "Selenium_BDD_Framework.sln"'
 							  }
 						}
         stage('Test Execution') {
 								steps {
+										echo '***************************************   TEST EXECUTION STARTS   ***************************************'
 										bat 'dotnet vstest "bin\\Debug\\netcoreapp3.1\\Selenium_BDD_Framework.dll"'
 									  }
 								}
 		stage('Report Generation') {
 								steps {
-										publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'bin\\TestResults', reportFiles: 'index.html', reportName: 'BDD Test Automation Report', reportTitles: 'Extent Report'])
+										echo '***************************************   GENERATING HTML REPORT   ***************************************'
+										publishHTML([
+										allowMissing: true, 
+										alwaysLinkToLastBuild: true, 
+										keepAll: true, 
+										reportDir: 'bin\\TestResults', 
+										reportFiles: 'index.html', 
+										reportName: 'BDD Test Automation Report', 
+										reportTitles: 'Extent Report'])
 									  }
 								}
     }
